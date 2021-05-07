@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Elka Synthex emulator project -->
+<html>
+  <head>
+    <title>Elka Synthex Emulator</title>
+    <meta charset="UTF-8">
+  <style>
+    #cpuscreen { position:absolute; visibility:hidden; left:20px; top:20px; width:600px; height:500px; border-radius:8px; box-shadow: 20px 20px 25px #000000; z-index:95;}
+    #digitalscreen { position:absolute; visibility:hidden; left:440px; top:20px; width:780px; height:545px; border-radius:8px; box-shadow: 20px 20px 25px #000000; z-index:94;}
+    #analogscreen { position:absolute; visibility:hidden; left:840px; top:20px; width:780px; height:545px; border-radius:8px; box-shadow: 20px 20px 25px #000000; z-index:93;}
+  </style>
+  </head>
+  <body>
+  <script type="text/javascript" src="mousehandling.js"></script>
+  <script type="text/javascript" src="controlpanel.js"></script>
+  <script type="text/javascript" src="synthexfrontpanel.js"></script>
+  <script type="text/javascript" src="synthexknob.js"></script>
+  <script type="text/javascript" src="synthexfader.js"></script>
+  <script type="text/javascript" src="synthexbutton.js"></script>
+  <script type="text/javascript" src="synthexswitch.js"></script>
+  <script type="text/javascript" src="synthexjoystick.js"></script>
+  <script type="text/javascript" src="pianokeyboard.js"></script>
+  <script type="text/javascript" src="analogpanel.js"></script>
+  <script type="text/javascript" src="digitalpanel.js"></script>
+  <script type="text/javascript" src="cpupanel.js"></script>
+  <script type="text/javascript" src="cpu65c02.js"></script>
+  <script type="text/javascript" src="synthexmemory.js"></script>
+  <script type="text/javascript" src="synthexhardware.js"></script>
+  <script type="text/javascript" src="lcdisplay.js"></script>
+  <script type="text/javascript" src="button.js"></script>
+  <!-- 65C02 CPU screen showing registers, flags, stack, zero page, and other memory -->
+  <div id="cpuscreen"><canvas id="cpupanel" onmousedown="CpuMouse.down(event);" onmouseup="CpuMouse.up(event);" onmousemove="CpuMouse.move(event);" onmouseout="CpuMouse.out(event);"></canvas></div>
+  <div id="digitalscreen"><canvas id="digitalpanel" onmousedown="DigitalMouse.down(event);" onmouseup="DigitalMouse.up(event);" onmousemove="DigitalMouse.move(event);" onmouseout="DigitalMouse.out(event);"></canvas></div>
+  <div id="analogscreen"><canvas id="analogpanel" onmousedown="AnalogMouse.down(event);" onmouseup="AnalogMouse.up(event);" onmousemove="AnalogMouse.move(event);" onmouseout="AnalogMouse.out(event);"></canvas></div>
+
+  <table>
+    <tr>
+      <!-- Synthex front panel with all the knobs, buttons, faders, switches, keys and joystick -->
+      <td><canvas id="frontpanel" onmousedown="SynthexMouse.down(event);" onmouseup="SynthexMouse.up(event);" onmousemove="SynthexMouse.move(event);" onmouseout="SynthexMouse.out(event);"></canvas></td>
+    </tr>
+    <tr><td style="height:10px;"></td></tr>
+    <tr style="text-align:center;">
+      <!-- Control panel with all the buttons for opening the other panels -->
+      <td><canvas id="controlpanel" onmousedown="ControlMouse.down(event);" onmouseup="ControlMouse.up(event);" onmousemove="ControlMouse.move(event);" onmouseout="ControlMouse.out(event);"></canvas></td>
+    </tr>
+  </table>
+
+  <script type="text/javascript" src="setup.js"></script>
+  </body>
+</html>
